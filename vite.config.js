@@ -8,12 +8,13 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.js"),
       name: "manju-ui-lib",
       fileName: "index",
-      formats: ["es"], // Specify ES module format
+      formats: ["es"],
+      external: [/\.css$/],
     },
     rollupOptions: {
       input: {
         ...readdirSync("./src/components")
-          .filter((dir) => dir !== "index.js")
+          .filter((dir) => dir !== "index.js" && dir !== ".DS_Store") // .DS_Store is Specific to macOS
           .reduce((entries, dir) => {
             entries[dir] = resolve(__dirname, `src/components/${dir}/index.js`);
             return entries;
@@ -28,7 +29,7 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       ...readdirSync("./src/components")
-        .filter((dir) => dir !== "index.js")
+        .filter((dir) => dir !== "index.js" && dir !== ".DS_Store")
         .map((dir) => `./src/components/${dir}/index.js`),
     ],
   },

@@ -1,19 +1,43 @@
 {
   "name": "manju-ui-lib",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "UI library by Manjunath",
   "main": "./dist/*",
-  "files": ["./dist/*"],
+  "files": [
+    "./dist/*"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vite build",
     "move-files": "cp ./package.json ./dist/package.json && cp ./LICENSE ./dist/LICENSE && cp ./README.md ./dist/README.md && mv ./dist/style.css ./dist/styles.css",
-    "publish": "npm run build && npm run move-files"
+    "publish": "npm run build && npm run move-files && npm publish ./dist"
   },
   "author": "Manjunath",
   "license": "ISC",
   "devDependencies": {
     "react": "^18.2.0",
     "vite": "^5.1.6"
-  }
+  },
+  "dependencies": {
+    "esbuild": "^0.19.12",
+    "fsevents": "^2.3.3",
+    "js-tokens": "^4.0.0",
+    "nanoid": "^3.3.7",
+    "postcss": "^8.4.35",
+    "picocolors": "^1.0.0",
+    "loose-envify": "^1.4.0",
+    "rollup": "^4.13.0",
+    "source-map-js": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manjunathcr89/manju-ui-lib.git"
+  },
+  "keywords": [
+    "Manju"
+  ],
+  "bugs": {
+    "url": "https://github.com/manjunathcr89/manju-ui-lib/issues"
+  },
+  "homepage": "https://github.com/manjunathcr89/manju-ui-lib#readme"
 }
